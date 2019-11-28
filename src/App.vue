@@ -4,6 +4,11 @@
       <main-nav></main-nav>
     </header>
     <router-view />
+    <footer class="footer">
+      <div class="content has-text-centered">
+        Developed by <a href="https://nicomv.com/">NicoMV (AKA skaparate)</a>
+      </div>
+    </footer>
   </div>
 </template>
 

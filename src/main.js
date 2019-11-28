@@ -1,3 +1,4 @@
+import axios from 'axios';
 import Vue from 'vue';
 import App from './App.vue';
 import router from './router';
@@ -9,11 +10,20 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import 'buefy/dist/buefy.css';
 import './assets/theme.sass';
 
-Vue.config.productionTip = false;
-library.add(fas);
+const baseApiUri = 'http://localhost:3100/api/';
 
-Vue.use(buefy);
-Vue.component('font-awesome-icon', FontAwesomeIcon);
+Vue.config.productionTip = false;
+Vue.config.axios = axios.create({
+  baseURL: baseApiUri
+});
+
+library.add(fas);
+Vue.component('vue-fontawesome', FontAwesomeIcon);
+
+Vue.use(buefy, {
+  defaultIconComponent: 'vue-fontawesome',
+  defaultIconPack: 'fas'
+});
 
 new Vue({
   router,
